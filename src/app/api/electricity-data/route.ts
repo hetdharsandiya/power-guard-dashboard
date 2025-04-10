@@ -10,11 +10,12 @@ export async function POST(req: NextRequest) {
     await dbConnect();
 
     const reading = new SensorReading({
-      api_key: body.api_key,
-      sensor_zone: body.sensor_zone,
-      sensor_type: body.sensor_type,
-      sensor_name: body.sensor_name,
-      sensor_current: parseFloat(body.sensor_current),
+      api_key: body.api_key || '',
+      sensor_zone: body.sensor_zone || '',
+      sensor_type: body.sensor_type || '',
+      sensor_name: body.sensor_name || '',
+      sensor_current: parseFloat(body.sensor_current) || 0,
+      sensor_time: body.timestamp || 0 
     });
 
     await reading.save();

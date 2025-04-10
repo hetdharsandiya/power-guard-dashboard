@@ -6,6 +6,7 @@ const SensorReadingSchema = new Schema({
   sensor_type: { type: String, enum: ['IN', 'OUT'] },
   sensor_name: String,
   sensor_current: Number,
+  sensor_time: Number,
   timestamp: { type: Date, default: Date.now },
 });
 
